@@ -12,7 +12,7 @@ const Contact = () => {
       const formData = new FormData(event.target);
   
       // Enter your Web3Forms Access Key below
-      formData.append("access_key", "---- Web3forms-Access-Key----");
+      formData.append("access_key", "7cfb895a-659a-485e-9999-ba969a7c6fd0");
   
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -40,7 +40,7 @@ const Contact = () => {
       viewport={{once: true}}
     className='text-center p-6 py-20 lg:px-32 w-full overflow-hidden' id='Contact'>
       <h1 className='text-2xl sm:text-4xl font-bold mb-2 text-center'>Contact <span className='underline underline-offset-4 decoration-1 under font-light'>With Us</span></h1>
-      <p className='text-center text-gray-500 mb-12 max-w-80 mx-auto'>Ready to Make a Move? Let’s Build Your Future Together</p>
+      <p className='text-center text-gray-500 mb-12 max-w-80 mx-auto'>Contact us to discuss your project needs or request a personalized quote. We’re here to help!</p>
 
 <form onSubmit={onSubmit} className='max-w-2xl mx-auto text-gray-600 pt-8'>
     <div className='flex flex-wrap'>
