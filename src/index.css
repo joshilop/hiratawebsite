@@ -7,3 +7,8 @@
 *{
   font-family: Outfit;
 }
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}

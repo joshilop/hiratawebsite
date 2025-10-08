@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://hirata-construction.com/sitemap.xml
+
+# Disallow specific file types for crawling efficiency
+Disallow: /*.json$
+Disallow: /*.pdf$
+Disallow: /src/
+Disallow: /node_modules/
+
+# Allow specific important files
+Allow: /favicon.svg
+Allow: /og-image.jpg

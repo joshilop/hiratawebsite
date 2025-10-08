@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 const About = () => {
   return (
-    <section id="About" className="relative overflow-hidden bg-white">
+    <section id="About" className="relative overflow-hidden bg-white scroll-mt-20">
       {/* Curva superior */}
       <svg
         className="absolute top-0 left-0 w-full h-[100px] md:h-[140px] rotate-180 text-white"
@@ -26,12 +26,12 @@ const About = () => {
         viewport={{ once: true }}
         className="flex flex-col items-center justify-center container mx-auto p-14 md:px-20 lg:px-32 w-full overflow-hidden relative z-10"
       >
-        <h1 className="text-2xl sm:text-4xl font-bold mb-2">
+        <h2 className="text-2xl sm:text-4xl font-bold mb-2">
           About{' '}
           <span className="underline underline-offset-4 decoration-1 under font-light">
             Our Brand
           </span>
-        </h1>
+        </h2>
         <p className="text-gray-500 max-w-80 text-center mb-8">
           Serving Huntsville & surrounding areas
         </p>
@@ -41,7 +41,7 @@ const About = () => {
           <div className="relative w-full sm:w-1/2 max-w-lg">
             <img
               src={assets.brand_img}
-              alt="About our brand"
+              alt="Professional construction team working on home remodeling project - Hirata Construction craftsmanship"
               className="w-full max-h-[400px] md:max-h-[450px] lg:max-h-[500px] rounded-lg shadow-lg object-cover"
             />
 
@@ -73,7 +73,7 @@ const About = () => {
               and care.
             </p>
 
-            <button className="bg-blue-600 text-white px-8 py-2 rounded hover:bg-blue-700 transition">
+            <button className="bg-yellow-600 text-white px-8 py-2 rounded hover:bg-yellow-700 transition">
               Contact Us
             </button>
           </div>

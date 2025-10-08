@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { assets, projectsData } from '../assets/assets'
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'
+import OptimizedImage from './OptimizedImage';
 
 // ...existing code...
 const Projects = () => {
@@ -71,8 +72,8 @@ const Projects = () => {
       transition={{duration: 1}}
       whileInView={{opacity: 1, x:0}}
       viewport={{once: true}}
-    className='container mx-auto py-4 pt-20 px-6 md:px-20 lg:px-32 my-20 w-full overflow-hidden' id='Projects'>
-      <h1 className='text-2xl sm:text-4xl font-bold mb-2 text-center'>Projects <span className="underline underline-offset-4 decoration-1 under font-light">Completed</span></h1>
+    className='container mx-auto py-4 pt-20 px-6 md:px-20 lg:px-32 my-20 w-full overflow-hidden scroll-mt-20' id='Projects'>
+      <h2 className='text-2xl sm:text-4xl font-bold mb-2 text-center'>Projects <span className="underline underline-offset-4 decoration-1 under font-light">Completed</span></h2>
       <p className='text-center text-gray-500 mb-8 max-w-80 mx-auto'>Explore our completed projects showcasing excellence and expertise.</p>
 
     {/* slider buttons */}
@@ -95,13 +96,18 @@ const Projects = () => {
             {projectsData.map((project, index) => (
                 <div key={index} className='relative flex-shrink-0 w-full sm:w-1/4 cursor-pointer' onClick={() => openPopup(project)}>
                     <div className='w-full h-80 flex items-center justify-center rounded-lg shadow mb-14 overflow-hidden'>
-                        <img src={project.images[0]} alt={project.title} className='w-full h-auto rounded-lg' />
+                        <OptimizedImage 
+                            src={project.images[0]} 
+                            alt={`${project.title} - ${project.location}`}
+                            className='w-full h-full rounded-lg object-cover hover:scale-105 transition-transform duration-300'
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        />
                     </div>
                     <div className='absolute left-0 right-0 bottom-5 flex justify-center'>
                         <div className='inline-block bg-white w-3/4 px-4 py-2 shadow-md'>
-                            <h2 className='text-xl font-semibold text-gray-800'>
+                            <h3 className='text-xl font-semibold text-gray-800'>
                                 {project.title}
-                            </h2>
+                            </h3>
                             <p className='text-gray-500 text-sm'>
                                 {project.price} <span className='px-1'>|</span> {project.location}
                             </p>
@@ -131,7 +137,7 @@ const Projects = () => {
                 >
                     &times;
                 </button>
-                <h2 className="text-3xl font-bold mb-4 text-center">{selectedProject.title}</h2>
+                <h3 className="text-3xl font-bold mb-4 text-center">{selectedProject.title}</h3>
                 <p className="text-gray-500 text-center mb-6 text-lg">{selectedProject.price} | {selectedProject.location}</p>
                 {/* Galería de imágenes con flechas */}
                  {/* Galería de imágenes con carrusel y flechas */}
@@ -144,19 +150,23 @@ const Projects = () => {
                     >
                         <img src={assets.left_arrow} alt="Anterior" className="w-6 h-6" />
                     </button>
-                    <motion.img
+                    <motion.div
                         key={popupImageIndex}
                         initial={{ opacity: 0, x: 50 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -50 }}
                         transition={{ duration: 0.4 }}
-                        src={
-                            (selectedProject.images ? selectedProject.images : [selectedProject.image])[popupImageIndex]
-                        }
-                        alt={selectedProject.title + ' ' + popupImageIndex}
-                        className="mx-auto rounded-lg shadow-lg object-cover w-full h-80"
-                        style={{maxHeight: '340px', maxWidth: '90%', width: 'auto'}}
-                    />
+                        className="mx-auto rounded-lg shadow-lg w-full h-80 max-w-[90%]"
+                        style={{maxHeight: '340px'}}
+                    >
+                        <OptimizedImage
+                            src={(selectedProject.images ? selectedProject.images : [selectedProject.image])[popupImageIndex]}
+                            alt={`${selectedProject.title} - Image ${popupImageIndex + 1}`}
+                            className="w-full h-full object-cover rounded-lg"
+                            priority={true}
+                            sizes="(max-width: 768px) 90vw, 70vw"
+                        />
+                    </motion.div>
                     <button
                         className="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-200 hover:bg-gray-300 rounded-full p-3 z-10"
                         onClick={handleNextImage}
@@ -170,7 +180,7 @@ const Projects = () => {
                         {(selectedProject.images ? selectedProject.images : [selectedProject.image]).map((_, idx) => (
                             <button
                                 key={idx}
-                                className={`inline-block w-3 h-3 rounded-full ${idx === popupImageIndex ? 'bg-blue-500' : 'bg-gray-300'}`}
+                                className={`inline-block w-3 h-3 rounded-full ${idx === popupImageIndex ? 'bg-yellow-600' : 'bg-gray-300'}`}
                                 style={{transition: 'background 0.2s'}}
                                 onClick={() => setPopupImageIndex(idx)}
                                 aria-label={`Ir a imagen ${idx + 1}`}
