@@ -1,17 +1,10 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { ViteImageOptimize } from 'vite-plugin-imagemin'
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    react(),
-    ViteImageOptimize({
-      gifsicle: { optimizationLevel: 7 },
-      mozjpeg: { quality: 75 },
-      pngquant: { quality: [0.65, 0.75] },
-      webp: { quality: 75 }
-    })
+    react()
   ],
   assetsInclude: ['**/*.jpg', '**/*.JPG', '**/*.webp'],
   build: {

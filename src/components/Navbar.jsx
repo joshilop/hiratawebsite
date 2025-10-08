@@ -61,11 +61,6 @@ useEffect(() => {
                 isScrolled ? 'hover:text-yellow-600' : 'hover:text-gray-400'
               }`}>Contact</a></li>
           </ul>
-          <button className={`hidden md:block px-8 py-2 rounded-full transition-all duration-200 ${
-            isScrolled 
-              ? 'bg-yellow-600 text-white hover:bg-yellow-700' 
-              : 'bg-yellow-600 text-white hover:bg-yellow-700'
-          }`}>Sign up</button>
           <img 
             onClick={()=> setShowMobileMenu(true)} 
             src={assets.menu_icon} 

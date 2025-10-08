@@ -68,19 +68,8 @@ const OptimizedImage = ({
   useEffect(() => {
     if (!isInView) return;
 
-    const webpSrc = getOptimizedSrc(src);
-    const fallbackSrc = getFallbackSrc(src);
-
-    // Detectar soporte WebP
-    const supportsWebP = () => {
-      const canvas = document.createElement('canvas');
-      canvas.width = 1;
-      canvas.height = 1;
-      return canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
-    };
-
-    // Usar WebP si es soportado, si no usar fallback
-    const finalSrc = supportsWebP() ? webpSrc : fallbackSrc;
+    // Por ahora usar directamente las imágenes originales para mantener calidad
+    const finalSrc = src;
     
     // Precargar imagen
     const img = new Image();
@@ -89,11 +78,7 @@ const OptimizedImage = ({
       setIsLoaded(true);
     };
     img.onerror = () => {
-      // Si WebP falla, usar fallback
-      if (finalSrc.includes('.webp')) {
-        setImageSrc(fallbackSrc);
-        setIsLoaded(true);
-      }
+      console.error('Error cargando imagen:', finalSrc);
     };
     img.src = finalSrc;
   }, [isInView, src]);
@@ -134,7 +119,6 @@ const OptimizedImage = ({
           } ${className}`}
           style={{
             ...props.style,
-            objectFit: props.objectFit || 'cover',
           }}
           {...props}
         />

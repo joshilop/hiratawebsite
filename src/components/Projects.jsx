@@ -95,11 +95,11 @@ const Projects = () => {
         >
             {projectsData.map((project, index) => (
                 <div key={index} className='relative flex-shrink-0 w-full sm:w-1/4 cursor-pointer' onClick={() => openPopup(project)}>
-                    <div className='w-full h-80 flex items-center justify-center rounded-lg shadow mb-14 overflow-hidden'>
+                    <div className='w-full h-80 flex items-center justify-center rounded-lg shadow mb-14 overflow-hidden bg-gray-50'>
                         <OptimizedImage 
                             src={project.images[0]} 
                             alt={`${project.title} - ${project.location}`}
-                            className='w-full h-full rounded-lg object-cover hover:scale-105 transition-transform duration-300'
+                            className='w-full h-full rounded-lg object-contain hover:scale-105 transition-transform duration-300'
                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                         />
                     </div>
@@ -141,7 +141,7 @@ const Projects = () => {
                 <p className="text-gray-500 text-center mb-6 text-lg">{selectedProject.price} | {selectedProject.location}</p>
                 {/* Galería de imágenes con flechas */}
                  {/* Galería de imágenes con carrusel y flechas */}
-                <div className="relative flex items-center justify-center w-full mb-6" style={{height: '350px'}}>
+                <div className="relative flex items-center justify-center w-full mb-6 min-h-[300px] max-h-[500px]">
                     <button
                         className="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-200 hover:bg-gray-300 rounded-full p-3 z-10"
                         onClick={handlePrevImage}
@@ -156,13 +156,13 @@ const Projects = () => {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -50 }}
                         transition={{ duration: 0.4 }}
-                        className="mx-auto rounded-lg shadow-lg w-full h-80 max-w-[90%]"
-                        style={{maxHeight: '340px'}}
+                        className="mx-auto rounded-lg shadow-lg w-full max-w-[90%] flex items-center justify-center bg-gray-50"
+                        style={{maxHeight: '480px'}}
                     >
                         <OptimizedImage
                             src={(selectedProject.images ? selectedProject.images : [selectedProject.image])[popupImageIndex]}
                             alt={`${selectedProject.title} - Image ${popupImageIndex + 1}`}
-                            className="w-full h-full object-cover rounded-lg"
+                            className="w-full h-auto max-h-[480px] object-contain rounded-lg"
                             priority={true}
                             sizes="(max-width: 768px) 90vw, 70vw"
                         />

@@ -73,9 +73,9 @@ const About = () => {
               and care.
             </p>
 
-            <button className="bg-yellow-600 text-white px-8 py-2 rounded hover:bg-yellow-700 transition">
+            <a href="#Contact" className="bg-yellow-600 text-white px-8 py-2 rounded hover:bg-yellow-700 transition inline-block cursor-pointer">
               Contact Us
-            </button>
+            </a>
           </div>
         </div>
       </motion.div>
