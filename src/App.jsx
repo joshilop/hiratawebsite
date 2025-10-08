@@ -32,6 +32,23 @@ const App = () => {
         {/*<Testimonails/>*/}
         <Contact/>
         <Footer/>
+        {/* Botón flotante de WhatsApp */}
+        <a
+          href="https://wa.me/2566943650?text=Hi!%20I'd%20like%20to%20request%20an%20estimate%2C%20please."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fixed bottom-6 right-6 z-[9999] animate-bounce"
+        >
+          <div className="bg-[#25D366] p-3 rounded-full shadow-2xl hover:scale-110 hover:brightness-110 transition-all duration-300">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+              alt="WhatsApp"
+              className="w-12 h-12"
+            />
+          </div>
+        </a>
+
+
       </div>
     </GoogleReCaptchaProvider>
   )
