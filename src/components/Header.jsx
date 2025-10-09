@@ -9,10 +9,23 @@ const Header = () => {
       id="Header"
       className="relative min-h-screen mb-4 bg-cover bg-center flex flex-col transition-all duration-300 bg-gray-900"
       style={{ 
-        backgroundImage: `url(${headerImg})`,
-        backgroundAttachment: 'fixed'
+        backgroundImage: `url(${headerImg}), url('/header_img.png')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
       }}
     >
+      {/* Fallback image for iOS - absolute positioned */}
+      <img 
+        src={headerImg}
+        alt="Hirata Construction Background"
+        className="absolute inset-0 w-full h-full object-cover -z-10 md:hidden"
+        loading="eager"
+        onError={(e) => {
+          e.target.src = '/header_img.png';
+        }}
+      />
+      
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/55 md:bg-black/50" />
 
