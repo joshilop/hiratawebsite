@@ -1,31 +1,24 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import headerImg from '../assets/header_img.png'
-import OptimizedImage from './OptimizedImage'
+import headerImg from '../assets/header_img.webp'
+import headerImgPng from '../assets/header_img.png'
 
 const Header = () => {
+  
+
+  
   return (
     <div
       id="Header"
-      className="relative min-h-screen mb-4 bg-cover bg-center flex flex-col transition-all duration-300 bg-gray-900"
+      className="relative min-h-screen mb-4 bg-cover bg-center flex flex-col transition-all duration-300"
       style={{ 
-        backgroundImage: `url(${headerImg}), url('/header_img.png')`,
+        backgroundImage: `url(${headerImg}), url(${headerImgPng})`,
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+        backgroundPosition: 'center center',
+        backgroundRepeat: 'no-repeat',
+        backgroundColor: '#1f2937' // fallback color
       }}
     >
-      {/* Fallback image for iOS - absolute positioned */}
-      <img 
-        src={headerImg}
-        alt="Hirata Construction Background"
-        className="absolute inset-0 w-full h-full object-cover -z-10 md:hidden"
-        loading="eager"
-        onError={(e) => {
-          e.target.src = '/header_img.png';
-        }}
-      />
-      
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/55 md:bg-black/50" />
 

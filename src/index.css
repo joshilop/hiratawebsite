@@ -13,21 +13,21 @@ html {
   scroll-behavior: smooth;
 }
 
-/* iOS Safari background image fixes */
+/* iOS Safari background image fixes - Simple and clean */
 @supports (-webkit-touch-callout: none) {
   /* Targeting iOS Safari specifically */
   #Header {
     background-attachment: scroll !important;
-    -webkit-background-size: cover;
-    -webkit-transform: translate3d(0,0,0); /* Hardware acceleration */
+    -webkit-background-size: cover !important;
+    -webkit-transform: translateZ(0); /* Hardware acceleration */
   }
 }
 
-/* Ensure images load properly on mobile */
+/* Mobile optimization without breaking layout */
 @media (max-width: 768px) {
   #Header {
     background-attachment: scroll;
-    min-height: 100vh;
-    min-height: -webkit-fill-available; /* iOS viewport units fix */
+    background-size: cover !important;
+    background-position: center center !important;
   }
 }
