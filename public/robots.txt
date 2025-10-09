@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://hirata-construction.com/sitemap.xml
+Sitemap: https://hiratawebsite-omega.vercel.app/sitemap.xml
 
 # Disallow specific file types for crawling efficiency
 Disallow: /*.json$
