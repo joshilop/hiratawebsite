@@ -11,5 +11,6 @@ Disallow: /src/
 Disallow: /node_modules/
 
 # Allow specific important files
+Allow: /favicon.png
 Allow: /favicon.svg
 Allow: /og-image.jpg

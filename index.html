@@ -2,7 +2,9 @@
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="./src/assets/logo.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <!-- SEO Meta Tags -->
@@ -42,7 +44,8 @@
     <meta name="apple-mobile-web-app-title" content="Hirata Construction" />
     
     <!-- Preload Critical Resources -->
-    <link rel="preload" href="/header_img.png" as="image" />
+    <link rel="preload" href="/header_img.png" as="image" fetchpriority="high" />
+    <link rel="preload" href="./src/assets/header_img.png" as="image" fetchpriority="high" />
     
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">

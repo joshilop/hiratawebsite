@@ -7,8 +7,11 @@ const Header = () => {
   return (
     <div
       id="Header"
-      className="relative min-h-screen mb-4 bg-cover bg-center flex flex-col"
-      style={{ backgroundImage: `url(${headerImg})` }}
+      className="relative min-h-screen mb-4 bg-cover bg-center flex flex-col transition-all duration-300 bg-gray-900"
+      style={{ 
+        backgroundImage: `url(${headerImg})`,
+        backgroundAttachment: 'fixed'
+      }}
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/55 md:bg-black/50" />
