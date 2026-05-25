@@ -127,11 +127,25 @@ const Contact = () => {
     <div className='flex flex-wrap'>
         <div className='w-full md:w-1/2 text-left'>
             Your Name
-            <input className='w-full border border-gray-300 rounded py-3 px-4 mt-2' type="text" name='Name' placeholder='Your Name' required/>
+            <input
+              className='w-full border border-gray-300 rounded py-3 px-4 mt-2'
+              type="text"
+              name='Name'
+              placeholder='Your Name'
+              autoComplete="name"
+              required
+            />
         </div>
         <div className='w-full md:w-1/2 text-left md:pl-4'>
             Your Email
-            <input className='w-full border border-gray-300 rounded py-3 px-4 mt-2' type="email" name='Email' placeholder='Your Email' required/>
+            <input
+              className='w-full border border-gray-300 rounded py-3 px-4 mt-2'
+              type="email"
+              name='Email'
+              placeholder='Your Email'
+              autoComplete="email"
+              required
+            />
         </div>
     </div>
     
@@ -145,13 +159,15 @@ const Contact = () => {
     />
     <div className='my-6 text-left'>
         Message
-        <textarea 
-            className='w-full border border-gray-300 rounded py-3 px-4 mt-2 h-48 resize-none'
-            name="Message" 
-            placeholder='Message (minimum 10 characters)' 
-            maxLength="1000"
-            onChange={(e) => setMessageLength(e.target.value.length)}
-            required>
+        <textarea
+          className='w-full border border-gray-300 rounded py-3 px-4 mt-2 h-48 resize-none'
+          name="Message"
+          placeholder='Message (minimum 10 characters)'
+          autoComplete="off"
+          maxLength="1000"
+          onChange={(e) => setMessageLength(e.target.value.length)}
+          required
+        >
         </textarea>
         <div className='text-sm text-gray-500 mt-1'>
             {messageLength}/1000 characters
